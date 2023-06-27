@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AFKHelper:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AFKHelper_jar</output-path>
+    <root id="archive" name="AFKHelper.jar">
+      <element id="module-output" name="AFKHelper" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+    </root>
+  </artifact>
+</component>

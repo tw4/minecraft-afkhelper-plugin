@@ -1,0 +1,13 @@
+name: AFKHelper
+version: '1.0'
+main: org.afkhelper.AFKHelper
+api-version: '1.20'
+author: 'Mert Sabinov'
+description: 'AFKHelper plugin for Minecraft'
+commands:
+  afk:
+    description: 'AFK command'
+    usage: /afk <on/off> <message>
+  afklist:
+    description: 'AFK list command'
+    usage: /afklist
