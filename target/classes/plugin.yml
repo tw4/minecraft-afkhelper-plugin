@@ -1,5 +1,5 @@
 name: AFKHelper
-version: '1.0'
+version: '1.0.1'
 main: org.afkhelper.AFKHelper
 api-version: '1.20'
 author: 'Mert Sabinov'
