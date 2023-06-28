@@ -14,7 +14,10 @@ public class AFKCommands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("afk")) {
             if (args.length >= 2) {
                 String afk = args[0];
-                String afkMessage = args[1];
+                String afkMessage = "";
+                for(Byte i = 1; i < args.length; i++){
+                    afkMessage += args[i] + " ";
+                }
                 Player player = (Player) sender;
 
                 if (afk.equalsIgnoreCase("on")) {
