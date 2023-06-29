@@ -21,16 +21,22 @@ public class AFKCommands implements CommandExecutor {
                 Player player = (Player) sender;
 
                 if (afk.equalsIgnoreCase("on")) {
-                    player.setDisplayName(ChatColor.GRAY + player.getName());
-                    player.setPlayerListName(ChatColor.GRAY + player.getName());
-                    player.setCustomName(ChatColor.GRAY + player.getName());
-                    player.setCustomNameVisible(true);
-                    player.sendMessage(ChatColor.GRAY + "You are now AFK!");
-                    player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-                    player.setFlySpeed(0.0f);
-                    Bukkit.broadcastMessage(ChatColor.GRAY + player.getName() + " is now AFK!" + ChatColor.GOLD + " (" + afkMessage + ")");
-                    AfkList.addAfk(player.getName(), afkMessage);
-                    return true;
+                    // if player is allready afk return true
+                    boolean AFKUserControl = AfkList.addAfk(player.getName(), afkMessage);
+                    if (!AFKUserControl) {
+                        player.setDisplayName(ChatColor.GRAY + player.getName());
+                        player.setPlayerListName(ChatColor.GRAY + player.getName());
+                        player.setCustomName(ChatColor.GRAY + player.getName());
+                        player.setCustomNameVisible(true);
+                        player.sendMessage(ChatColor.GRAY + "You are now AFK!");
+                        player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+                        player.setFlySpeed(0.0f);
+                        Bukkit.broadcastMessage(ChatColor.GRAY + player.getName() + " is now AFK!" + ChatColor.GOLD + " (" + afkMessage + ")");
+                        return true;
+                    } else {
+                        player.sendMessage(ChatColor.RED + "You are already AFK!");
+                        return false;
+                    }
                 } else if (afk.equalsIgnoreCase("off")) {
                     player.setDisplayName(player.getName());
                     player.setPlayerListName(player.getName());

@@ -5,8 +5,18 @@ import java.util.ArrayList;
 public class AfkList {
     static ArrayList<AFKPlayer> afkList = new ArrayList<AFKPlayer>();
 
-    public static void addAfk(String playerName, String afkMessage) {
-        afkList.add(new AFKPlayer(playerName, afkMessage, true));
+    public static boolean addAfk(String playerName, String afkMessage) {
+        boolean found = false;
+        for (AFKPlayer a : afkList) {
+            if (a.getPlayerName().equals(playerName)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found){
+            afkList.add(new AFKPlayer(playerName, afkMessage, true));
+        }
+        return found;
     }
 
     public static void removeAfk(String playerName) {
